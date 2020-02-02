@@ -101,6 +101,29 @@ class LLT
         tar.next=tar.next.next;
 
     }
+    void dellist()//deleting a liked list
+    {
+        head=null;
+    }
+    void lecon()
+    {
+        int count=0;
+        Node st=head;
+        while(st.next!=null)
+        {
+            count++;
+            st=st.next;
+        }
+        System.out.println(count+1+" ");
+    }
+    int leconrecur(Node st)
+    {
+
+        if (st==null)
+        return 0;
+        else
+        return (1+leconrecur(st.next));
+    }
 public static void main(String [] args)
  {
     LLT ob= new LLT();
@@ -120,6 +143,11 @@ public static void main(String [] args)
     System.out.println("after deleting middle element");
     ob.delMid(ob.head.next.next);
     ob.printList();
+    System.out.println("The count is");
+    ob.lecon();
+    System.out.println("The count after recur is "+ob.leconrecur(ob.head));
+
+
 
 
 
