@@ -124,6 +124,22 @@ class LLT
         else
         return (1+leconrecur(st.next));
     }
+    void reverse()
+    {
+        //This method reverses the linked list
+        Node prev=null;
+        Node curr=head;
+        Node next=head.next;
+        while(curr!=null)
+        {
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+            
+        }
+        head=prev;
+    }
 public static void main(String [] args)
  {
     LLT ob= new LLT();
@@ -146,6 +162,17 @@ public static void main(String [] args)
     System.out.println("The count is");
     ob.lecon();
     System.out.println("The count after recur is "+ob.leconrecur(ob.head));
+    System.out.println("Now we reverse the linked list");
+    ob.pushBack(37);
+    ob.pushBack(52);
+    ob.pushBack(47);
+    ob.pushFront(25);
+    ob.pushFront(01);
+    System.out.println("This is the original linked list");
+    ob.printList();
+    ob.reverse();
+    System.out.println("This is the reversed linked list");
+    ob.printList();
 
 
 
